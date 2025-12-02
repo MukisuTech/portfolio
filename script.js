@@ -208,4 +208,24 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open('https://docs.google.com/document/d/17sK220k1YCUHZQHM91re3lbhg-KxGKEJ/edit?usp=sharing&ouid=112338338733191695018&rtpof=true&sd=true', '_blank');
         });
     }
+
+    // Add subtle glow entrance animation to hover-glow elements with a stagger
+    const hoverGlowEls = document.querySelectorAll('.hover-glow');
+    if (hoverGlowEls.length) {
+        hoverGlowEls.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.add('glow-entrance');
+
+                // Remove the entrance class after the animation completes so hover still works
+                const onAnimEnd = function(e) {
+                    if (e.animationName === 'glowEnter') {
+                        el.classList.remove('glow-entrance');
+                        el.removeEventListener('animationend', onAnimEnd);
+                    }
+                };
+
+                el.addEventListener('animationend', onAnimEnd);
+            }, 200 + i * 120);
+        });
+    }
 });

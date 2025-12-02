@@ -109,3 +109,83 @@ body {
         background-position: 0% 50%;
     }
 }
+
+/* Hover glow effect for section cards */
+.hover-glow {
+    position: relative;
+    transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform, box-shadow;
+}
+
+.hover-glow:hover,
+.hover-glow:focus-within,
+.hover-glow:focus-visible {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 22px 44px rgba(2,6,23,0.08), 0 0 36px rgba(59,130,246,0.14);
+}
+
+/* Subtle glowing edge using pseudo-element for larger screens */
+.hover-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 0 rgba(59,130,246,0); /* start transparent */
+    transition: box-shadow 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+.hover-glow:hover::after,
+.hover-glow:focus-within::after,
+.hover-glow:focus-visible::after {
+    box-shadow: 0 0 32px 10px rgba(59,130,246,0.10);
+    animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Entrance animation for the glow */
+@keyframes glowEnter {
+    from {
+        box-shadow: 0 0 0 0 rgba(59,130,246,0);
+    }
+    to {
+        box-shadow: 0 0 32px 8px rgba(59,130,246,0.08);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 28px 6px rgba(59,130,246,0.06);
+    }
+    50% {
+        box-shadow: 0 0 44px 12px rgba(59,130,246,0.10);
+    }
+    100% {
+        box-shadow: 0 0 28px 6px rgba(59,130,246,0.06);
+    }
+}
+
+.hover-glow.glow-entrance::after {
+    animation: glowEnter 700ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hover-glow,
+    .hover-glow::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .hover-glow:hover,
+    .hover-glow:focus-within,
+    .hover-glow:focus-visible {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Ensure keyboard focus is visible */
+.hover-glow:focus-visible {
+    outline: 3px solid rgba(59,130,246,0.12);
+    outline-offset: 4px;
+}
