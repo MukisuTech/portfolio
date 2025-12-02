@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Zebedayo Mukisu's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        accent: '#ec4899'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="header fixed w-full z-50 bg-white/90 border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary flex items-center space-x-2">
+                <i class="fas fa-code"></i>
+                <span>Zebedayo Mukisu</span>
+            </a>
+            
+            <nav class="desktop-menu">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-dark hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="resume.html" class="text-dark hover:text-primary transition-colors">Resume</a></li>
+                    <li><a href="projects.html" class="text-dark hover:text-primary transition-colors">Projects</a></li>
+                    <li><a href="contact.html" class="text-dark hover:text-primary transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger focus:outline-none" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars text-2xl text-dark"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="flex flex-col p-6">
+            <a href="index.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Home</a>
+            <a href="resume.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Resume</a>
+            <a href="projects.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Projects</a>
+            <a href="contact.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Resume Section -->
+    <section class="py-20 pt-32 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Resume</h2>
+                <p class="text-secondary max-w-2xl mx-auto">A summary of my skills, experiences, and educational background.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center gap-2">
+                        <i class="fas fa-briefcase text-primary"></i>
+                        Experience & Projects
+                    </h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-dark">Web Developer at Creative Agency</h4>
+                            <p class="text-primary text-sm mb-2">2024 - to date</p>
+                            <p class="text-secondary">Developed and still developing responsive websites for clients across various industries, collaborating with designers and project managers.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-dark">System Development</h4>
+                            <p class="text-primary text-sm mb-2">2023 - 2024</p>
+                            <p class="text-secondary">Developed Management System using Microsoft Access for managing memberships, activities, finances, and reports and increased site performance by 40%.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-dark">Junior Developer at StartUp Inc.</h4>
+                            <p class="text-primary text-sm mb-2">2022 - 2023</p>
+                            <p class="text-secondary">Assisted in the development of web applications, performed bug fixes, and learned modern development practices.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center gap-2">
+                        <i class="fas fa-graduation-cap text-primary"></i>
+                        Education
+                    </h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-dark">Bachelor's in Education Science</h4>
+                            <p class="text-primary text-sm mb-2">2025 - Currently In progress</p>
+                            <p class="text-secondary">Kibabii University</p>
+                            <p class="text-secondary">Training Education Mathematics and Computer Studies - (Ongoing)</p>
+                            
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-dark">Certificate in Basic Web Development</h4>
+                            <p class="text-primary text-sm mb-2">just to get certificate but have knowledge</p>
+                            <p class="text-primary text-sm mb-2">2024 - 2024</p>
+                            <p class="text-secondary">Alqudus cyber and computer training centre - South C Nairobi Kenya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+                <h3 class="text-xl font-bold text-dark mb-6 flex items-center gap-2">
+                    <i class="fas fa-code text-primary"></i>
+                    Skills
+                </h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-html5 text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">HTML5</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-css3-alt text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">CSS3</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-js text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">JavaScript</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-react text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">React.js</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-node-js text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">Node.js</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-python text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">Python</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fas fa-database text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">SQL/NoSQL</h4>
+                    </div>
+                    
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <i class="fab fa-git-alt text-3xl text-primary mb-2"></i>
+                        <h4 class="font-medium">Git</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button id="downloadCV" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-colors shadow-md cursor-pointer border-none">
+                    <i class="fas fa-download"></i>
+                    Download Full CV
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("downloadCV").addEventListener("click", function() {
+            window.open("https://docs.google.com/document/d/17sK220k1YCUHZQHM91re3lbhg-KxGKEJ/edit?usp=sharing&ouid=112338338733191695018&rtpof=true&sd=true", "_blank");
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-8">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/zebedayo-mukisu-2b9506289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:bruzeb4@gmail.com" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/Zebedee_Mukisu?t=nhU5nu9hVc4uWagrAK2HKA&s=09" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="tel:+254112087299" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-400">© <span id="currentYear">2025</span> Zebedayo Mukisu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

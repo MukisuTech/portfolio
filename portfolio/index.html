@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        accent: '#ec4899'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="header fixed w-full z-50 bg-white/90 border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="javascript:void(0)" class="text-2xl font-bold text-primary flex items-center space-x-2">
+                <i class="fas fa-code"></i>
+                <span>Zebedayo Mukisu</span>
+            </a>
+            
+            <nav class="desktop-menu">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-dark hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="resume.html" class="text-dark hover:text-primary transition-colors">Resume</a></li>
+                    <li><a href="projects.html" class="text-dark hover:text-primary transition-colors">Projects</a></li>
+                    <li><a href="contact.html" class="text-dark hover:text-primary transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger focus:outline-none" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars text-2xl text-dark"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="flex flex-col p-6">
+            <a href="index.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Home</a>
+            <a href="resume.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Resume</a>
+            <a href="projects.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Projects</a>
+            <a href="contact.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Contact</a>
+        </nav>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="about" class="hero-section pt-28 pb-16 animated-background">
+        <div class="container mx-auto px-4">
+            <div class="bg-white/90 backdrop-blur-md rounded-xl shadow-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 animate__animated animate__fadeIn">
+                <div class="md:w-1/3">
+                    <img src="img1/1.png" alt="Profile Image" class="rounded-full w-64 h-64 object-cover mx-auto border-4 border-primary shadow-lg">
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-dark">Zebedayo Mukisu</h1>
+                    <h2 class="text-xl md:text-2xl text-primary font-medium mb-6">Junior Stack Developer</h2>
+                    <p class="text-secondary text-lg mb-6 leading-relaxed">
+                        I'm a Motivated and tech-savvy individual with a strong foundation in computer basics, academic excellence, and hands-on experience in software projects. Currently pursuing a bachelor’s degree in education science at Kibabii University. Passionate about software development, cybersecurity, and technology-driven solutions.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            Contact Me
+                        </a>
+                        <a href="projects.html" class="bg-dark hover:bg-dark/90 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md flex items-center gap-2">
+                            <i class="fas fa-briefcase"></i>
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-8">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/zebedayo-mukisu-2b9506289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:bruzeb4@gmail.com" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/Zebedee_Mukisu?t=nhU5nu9hVc4uWagrAK2HKA&s=09" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="tel:+254112087299" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-400">© <span id="currentYear">2025</span> Zebedayo Mukisu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
