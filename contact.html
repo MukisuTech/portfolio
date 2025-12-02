@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Zebedayo Mukisu's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        accent: '#ec4899'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="header fixed w-full z-50 bg-white/90 border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary flex items-center space-x-2">
+                <i class="fas fa-code"></i>
+                <span>Zebedayo Mukisu</span>
+            </a>
+            
+            <nav class="desktop-menu">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-dark hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="resume.html" class="text-dark hover:text-primary transition-colors">Resume</a></li>
+                    <li><a href="projects.html" class="text-dark hover:text-primary transition-colors">Projects</a></li>
+                    <li><a href="contact.html" class="text-dark hover:text-primary transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger focus:outline-none" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars text-2xl text-dark"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="flex flex-col p-6">
+            <a href="index.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Home</a>
+            <a href="resume.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Resume</a>
+            <a href="projects.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Projects</a>
+            <a href="contact.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="py-20 pt-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get in Touch</h2>
+                <p class="text-secondary max-w-2xl mx-auto">Have a question or want to work together? Feel free to contact me.</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+
+    <form id="contactForm" class="bg-light p-8 rounded-xl shadow-lg">
+
+        <div class="mb-6">
+            <label for="name" class="block text-dark font-medium mb-2">Name *</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            <span class="error-message text-accent text-sm hidden">Name is required</span>
+        </div>
+
+        <div class="mb-6">
+            <label for="email" class="block text-dark font-medium mb-2">Email *</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            <span class="error-message text-accent text-sm hidden">Valid email is required</span>
+        </div>
+
+        <div class="mb-6">
+            <label for="subject" class="block text-dark font-medium mb-2">Subject *</label>
+            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            <span class="error-message text-accent text-sm hidden">Subject is required</span>
+        </div>
+
+        <div class="mb-6">
+            <label for="message" class="block text-dark font-medium mb-2">Message *</label>
+            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+            <span class="error-message text-accent text-sm hidden">Message is required</span>
+        </div>
+
+        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md flex justify-center items-center">
+            <span id="submitText">Send Message</span>
+            <span id="loadingSpinner" class="hidden">
+                <i class="fas fa-spinner fa-spin ml-2"></i>
+            </span>
+        </button>
+    </form>
+
+    <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mt-6">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span>Thank you! Your message has been sent successfully. I'll get back to you soon.</span>
+        </div>
+    </div>
+</div>
+
+<!-- ============================= -->
+<!--      EMAIL SCRIPT BELOW       -->
+<!-- ============================= -->
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop normal form submission
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const body =
+        `Name: ${name}%0D%0A` +
+        `Email: ${email}%0D%0A%0D%0A` +
+        `Message:%0D%0A${encodeURIComponent(message)}`;
+
+    // Gmail compose URL
+    const gmailURL =
+        `https://mail.google.com/mail/?view=cm&fs=1&to=bruzeb4@gmail.com` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${body}`;
+
+    // mailto fallback for phone/Gmail app
+    const mailtoURL =
+        `mailto:bruzeb4@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    // Try opening Gmail web
+    window.open(gmailURL, "_blank");
+
+    // Fallback to mailto after 400ms
+    setTimeout(() => {
+        window.location.href = mailtoURL;
+    }, 400);
+});
+</script>
+
+                
+                <div class="mt-12 grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
+                        <div class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-dark mb-2">Email</h3>
+                        <p class="text-secondary">bruzeb4@gmail.com</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
+                        <div class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-dark mb-2">Phone</h3>
+                        <p class="text-secondary">+254112087299</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-white rounded-xl shadow-md">
+                        <div class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-dark mb-2">Location</h3>
+                        <p class="text-secondary">Bungoma, Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-8">
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/zebedayo-mukisu-2b9506289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:bruzeb4@gmail.com" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/Zebedee_Mukisu?t=nhU5nu9hVc4uWagrAK2HKA&s=09" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="tel:+254112087299" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-400">© <span id="currentYear">2025</span> Zebedayo Mukisu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
