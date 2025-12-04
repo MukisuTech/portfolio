@@ -7,6 +7,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
+    // Sparkle effect function
+    function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle-particle';
+        sparkle.textContent = '✨';
+        
+        const tx = (Math.random() - 0.5) * 60;
+        const ty = (Math.random() - 0.5) * 60 - 30;
+        
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        sparkle.style.setProperty('--tx', tx + 'px');
+        sparkle.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => sparkle.remove(), 600);
+    }
+    
+    // Add sparkle on nav link hover
+    const navLinks = document.querySelectorAll('.nav-sparkle');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Create 2-3 sparkles on hover
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    createSparkle(x, y);
+                }, i * 80);
+            }
+        });
+    });
+    
+    // Initial sparkle animation on navbar on page load (subtle)
+    const navbar = document.querySelector('.header');
+    if (navbar) {
+        setTimeout(() => {
+            const navRect = navbar.getBoundingClientRect();
+            for (let i = 0; i < 4; i++) {
+                setTimeout(() => {
+                    const randomX = navRect.left + Math.random() * navRect.width;
+                    const randomY = navRect.top + Math.random() * navRect.height;
+                    createSparkle(randomX, randomY);
+                }, i * 150);
+            }
+        }, 600);
+    }
+    
+    
     menuToggle.addEventListener('click', function() {
         mobileMenu.classList.toggle('active');
         if (mobileMenu.classList.contains('active')) {
@@ -37,48 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Project data (mock data)
     const projects = [
-        {
-            id: 1,
-            title: 'E-Commerce Platform',
-            image: 'https://cdn.pixabay.com/photo/2016/11/30/20/44/computer-1873831_1280.png',
-            description: 'A comprehensive e-commerce platform with product listings, user authentication, shopping cart functionality, and payment integration. The platform includes an admin dashboard for managing products, orders, and customers.',
-            technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Redux', 'Stripe'],
-        },
-        {
-            id: 2,
-            title: 'Task Management App',
-            image: 'https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_1280.jpg',
-            description: 'A task management application with drag-and-drop functionality, allowing users to organize tasks into different columns. Features include task creation, assignment, due dates, and progress tracking.',
-            technologies: ['React', 'TypeScript', 'Firebase', 'Material UI', 'React DnD'],
-        },
-        {
-            id: 3,
-            title: 'Portfolio Website',
-            image: 'https://cdn.pixabay.com/photo/2017/05/11/11/15/workplace-2303851_1280.jpg',
-            description: 'A responsive portfolio website template for creative professionals. Includes sections for showcasing work, sharing background information, and contacting the site owner.',
-            technologies: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Responsive Design'],
-        },
-        {
-            id: 4,
-            title: 'Weather Dashboard',
-            image: 'https://cdn.pixabay.com/photo/2020/04/08/16/32/keyboard-5017973_1280.jpg',
-            description: 'A weather application that provides current weather conditions and forecasts for any location. Features include search functionality, saved locations, and detailed weather data.',
-            technologies: ['JavaScript', 'OpenWeather API', 'Chart.js', 'Geolocation API'],
-        },
-        {
-            id: 5,
-            title: 'Social Media App',
-            image: 'https://cdn.pixabay.com/photo/2015/05/31/10/55/man-791049_1280.jpg',
-            description: 'A social networking platform where users can create profiles, connect with friends, share content, and communicate in real-time. The app includes features like news feed, messaging, and notifications.',
-            technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'AWS S3'],
-        },
-        {
-            id: 6,
-            title: 'Blog Platform',
-            image: 'https://cdn.pixabay.com/photo/2018/02/23/04/38/laptop-3174729_1280.jpg',
-            description: 'A content management system for creating and managing blog posts. Features include rich text editing, image uploads, categorization, and search functionality.',
-            technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Quill Editor', 'JWT'],
-        }
+     
     ];
     
     // Open modal with project details

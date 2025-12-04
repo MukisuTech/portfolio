@@ -38,12 +38,12 @@
                 <span>Zebedayo Mukisu</span>
             </a>
             
-            <nav class="desktop-menu">
+            <nav class="desktop-menu navbar-sparkle">
                 <ul class="flex space-x-8">
-                    <li><a href="index.html" class="text-dark hover:text-primary transition-colors">Home</a></li>
-                    <li><a href="resume.html" class="text-dark hover:text-primary transition-colors">Resume</a></li>
-                    <li><a href="projects.html" class="text-dark hover:text-primary transition-colors">Projects</a></li>
-                    <li><a href="contact.html" class="text-dark hover:text-primary transition-colors">Contact</a></li>
+                    <li><a href="index.html" class="text-dark hover:text-primary transition-colors nav-sparkle">Home</a></li>
+                    <li><a href="resume.html" class="text-dark hover:text-primary transition-colors nav-sparkle">Resume</a></li>
+                    <li><a href="projects.html" class="text-dark hover:text-primary transition-colors nav-sparkle">Projects</a></li>
+                    <li><a href="contact.html" class="text-dark hover:text-primary transition-colors nav-sparkle">Contact</a></li>
                 </ul>
             </nav>
             
@@ -55,35 +55,27 @@
     
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <nav class="flex flex-col p-6">
-            <a href="index.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Home</a>
-            <a href="resume.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Resume</a>
-            <a href="projects.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Projects</a>
-            <a href="contact.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary">Contact</a>
+        <nav class="flex flex-col p-6 navbar-sparkle">
+            <a href="index.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary nav-sparkle">Home</a>
+            <a href="resume.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary nav-sparkle">Resume</a>
+            <a href="projects.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary nav-sparkle">Projects</a>
+            <a href="contact.html" class="py-4 px-2 text-lg border-b border-gray-200 text-dark hover:text-primary nav-sparkle">Contact</a>
         </nav>
     </div>
 
-    <!-- Projects Section -->
-    <section class="hero-section pt-28 pb-16 animated-background">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Projects</h2>
-                <p class="text-secondary max-w-2xl mx-auto">A selection of my recent work and personal projects.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card hover-glow bg-white rounded-xl overflow-hidden shadow-lg">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/30/20/44/computer-1873831_1280.png" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Mukisu Flashing Tool</h3>
-                        <p class="text-secondary mb-4">A fully mobile repairing tool developed by Python, to explorer and perform several tasks as instructed.</p>
-                        
-                    </div>
-                </div>
-                
-
-    </section>
+   <!-- Projects Section -->
+<section class="hero-section pt-28 pb-16 animated-background">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Projects</h2>
+            <p class="text-secondary max-w-2xl mx-auto">A selection of my recent work and personal projects.</p>
+        </div>
+        
+        <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects from Contentful will appear here -->
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-12 mt-20">
@@ -145,7 +137,9 @@
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
+            <!-- Scripts go here -->
+            <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+            <script src="projects.js"></script>
+            <script src="script.js"></script>
 </body>
 </html>
