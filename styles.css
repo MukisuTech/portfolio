@@ -17,6 +17,41 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+.header .desktop-menu ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .desktop-menu ul li a,
+.mobile-menu a {
+    color: #0f172a;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.header .desktop-menu ul li a:hover,
+.mobile-menu a:hover {
+    color: #3b82f6;
+}
+
+.header .desktop-menu ul li a {
+    padding: 0.4rem 0;
+}
+
+.header .desktop-menu ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.2s ease;
+}
+
+.header .desktop-menu ul li a:hover::after {
+    width: 100%;
+}
+
 .project-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;

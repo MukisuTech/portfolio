@@ -2,10 +2,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
     
     // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const currentYear = document.getElementById('currentYear');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
     
     // Sparkle effect function
     function createSparkle(x, y) {
@@ -59,20 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-        if (mobileMenu.classList.contains('active')) {
-            menuToggle.innerHTML = '<i class="fas fa-times text-2xl text-dark"></i>';
-        } else {
-            menuToggle.innerHTML = '<i class="fas fa-bars text-2xl text-dark"></i>';
-        }
-    });
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times text-2xl text-dark"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars text-2xl text-dark"></i>';
+            }
+        });
+    }
     
     // Close mobile menu when clicking on a link
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars text-2xl text-dark"></i>';
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+            if (menuToggle) {
+                menuToggle.innerHTML = '<i class="fas fa-bars text-2xl text-dark"></i>';
+            }
         });
     });
     
@@ -240,3 +249,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+const resultForm = document.getElementById('resultForm');
+const linkPreview = document.getElementById('linkPreview');
+
+const buildPortalUrl = (studyYear, admissionNumber) => {
+  const base = 'https://portal.kibu.ac.ke/Academic/ReportsQR';
+  return `${base}?year=YEAR+${studyYear}&refNo=${encodeURIComponent(admissionNumber)}&semester=`;
+};
+
+const updatePreview = () => {
+  const studyYear = document.getElementById('year')?.value || '';
+  const admissionNumber = document.getElementById('admissionNumber')?.value.trim() || '';
+
+  if (linkPreview) {
+    if (!studyYear || !admissionNumber) {
+      linkPreview.textContent = 'Enter year of study and admission number to preview the portal link.';
+      return;
+    }
+    linkPreview.textContent = buildPortalUrl(studyYear, admissionNumber);
+  }
+};
+
+if (resultForm) {
+  resultForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const studyYear = document.getElementById('year')?.value || '';
+    const admissionNumber = document.getElementById('admissionNumber')?.value.trim() || '';
+    const url = buildPortalUrl(studyYear, admissionNumber);
+    window.open(url, '_blank');
+  });
+
+  document.getElementById('year')?.addEventListener('input', updatePreview);
+  document.getElementById('admissionNumber')?.addEventListener('input', updatePreview);
+  updatePreview();
+}
